@@ -8,10 +8,12 @@ import fcs.Receita;
 import fcs.Transacao;
 import fcs.Usuario;
 import fcs.Despesa;
+import fcs.Main;
 
 public class TestTransacao {
 
 	public static void main(String args[]) {
+		Main.main(args);
 		testReceita();
 		testDespesa();
 		testUsuario();

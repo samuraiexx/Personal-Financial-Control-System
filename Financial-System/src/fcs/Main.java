@@ -13,21 +13,25 @@ public final class Main {
 	public static final String DB_USER = "username";
 	public static final String PASSWORD = "password";
 	
-	private static Connection conn;
+	public static Connection conn;
 
 	private static String current_user;
 
 	private Main() {
 		usuarios = new ArrayList<Usuario>();
 	}
-
-	public static void main(String[] args) {
+	
+	public static void setup() {
 		try {
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(DB_URL, DB_USER, PASSWORD);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static void main(String[] args) {
+		setup();
 	}
 	
 	public static void registra_usuario(String usr, String pwd) {
@@ -48,7 +52,6 @@ public final class Main {
 			ResultSet rs = statement.executeQuery("SELECT senha FROM usuarios WHERE nome='"+usr+"';");
 			rs.next();
 			String pass = rs.getString("senha");
-			System.out.println(pass);
 			if (pass.equals(pwd)) {
 				System.out.println("Login realizado com sucesso!" + " usuario: "+usr);
 				current_user = usr;
