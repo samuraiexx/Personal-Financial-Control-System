@@ -4,17 +4,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Login</title>
 </head>
 <body>
-	<h4>Insert your credentials:</h4>
+	<h4>Insira suas credenciais:</h4>
 	<form method="post" action="validation.jsp">
-		Username:<input type="text" name="username" required/>
+		Usuário:<input type="text" name="username" required/>
 		<br/>
-		Password:<input type="password" name="password" required/>
+		Senha:<input type="password" name="password" required/>
 		<br/>
-		<input type="submit" value="Submit">
+		<input type="submit" value="Entrar">
 		<br/>
+	</form>
+	<form method=post action="register-new-user.jsp">
+		<input type="submit" value="Registrar"/>
 	</form>
 </body>
 </html>
