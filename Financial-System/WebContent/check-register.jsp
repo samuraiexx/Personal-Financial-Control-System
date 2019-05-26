@@ -7,14 +7,14 @@
 <title>Checking transaction</title>
 </head>
 <body>
-	<%@ page import="fcs.Receita, fcs.Despesa, fcs.Usuario, java.sql.Date" %>
+	<%@ page import="fcs.Receita, fcs.Despesa, fcs.Usuario, java.util.Date" %>
 	<%
 		String category = request.getParameter("category");
 		float value = Float.parseFloat(request.getParameter("value"));
 		
-		int day = Integer.parseInt(request.getParameter("day")) - 1;
+		int day = Integer.parseInt(request.getParameter("day"));
 		int month = Integer.parseInt(request.getParameter("month")) - 1;
-		int year = Integer.parseInt(request.getParameter("year"));
+		int year = Integer.parseInt(request.getParameter("year"))-1900;
 		
 		String transaction_type = request.getParameter("transaction");
 		String credit = request.getParameter("credit");

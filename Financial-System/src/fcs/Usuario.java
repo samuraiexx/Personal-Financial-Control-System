@@ -31,10 +31,11 @@ public class Usuario {
 			Statement statement = main.conn.createStatement();
 
 			Date data = t.get_data();
-			String dateString = data.getYear()+"-" +data.getMonth() + "-" + data.getDay() ;
+			String dateString = (data.getYear()+1900)+"-" +(data.getMonth()+1) + "-" + data.getDate() ;
+			System.out.println(data.toString());
 			String query = "";
 			if (t instanceof Receita) {
-				query = "INSERT INTO transacoes(valor,data,nome_usuario) VALUES (" + t.valor+ ", now(),'"+nome+"');";
+				query = "INSERT INTO transacoes(valor,data,nome_usuario) VALUES (" + t.valor+ ",'"+dateString+"','"+nome+"');";
 			} else if (t instanceof Despesa) {
 				Despesa d = (Despesa) t;
 				String is_credito = d.pago_em_credito() ? "true" : "false";
