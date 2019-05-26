@@ -9,9 +9,12 @@
 <body>
 	<%@ page import="fcs.Transacao, fcs.Receita, fcs.Despesa, fcs.Usuario, java.util.List" %>
 	<%
-			Usuario user = new Usuario("teste", "teste");
+			String username = (String) request.getSession().getAttribute("username");
+			String password = (String) request.getSession().getAttribute("password");
+
+			Usuario user = new Usuario(username, password);
 			int month = Integer.parseInt(request.getParameter("month-net")) - 1;
-			int year = Integer.parseInt(request.getParameter("year-net")) - 1;
+			int year = Integer.parseInt(request.getParameter("year-net"));
 
 			if ((month < 0 || month > 11)) {
 	%>
@@ -22,7 +25,6 @@
 	<h4>Histórico de transações</h4>
 	<table>
 	<tr>
-		<th> Receitas </th>
 		<th> Receitas </th>
 	</tr>
 	<tr>
@@ -49,9 +51,6 @@
 
 	<table>
 	<tr>
-		<th> Despesas </th>
-		<th> Despesas </th>
-		<th> Despesas </th>
 		<th> Despesas </th>
 	</tr>
 	<tr>

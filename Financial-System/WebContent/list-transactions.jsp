@@ -12,14 +12,17 @@
 	<table>
 	<tr>
 		<th> Receitas </th>
-		<th> Receitas </th>
 	</tr>
 	<tr>
 		<th> Valor </th>
 		<th> Data </th>
 	</tr>
 		<%
-			Usuario user = new Usuario("teste", "teste");
+			String username = (String) request.getSession().getAttribute("username");
+			String password = (String) request.getSession().getAttribute("password");
+
+			Usuario user = new Usuario(username, password);
+
 			List<Transacao> transacoes = user.listar_transacoes();
 			for (Transacao t : transacoes) {
 				if (t instanceof Receita) {
@@ -36,9 +39,6 @@
 
 	<table>
 	<tr>
-		<th> Despesas </th>
-		<th> Despesas </th>
-		<th> Despesas </th>
 		<th> Despesas </th>
 	</tr>
 	<tr>
