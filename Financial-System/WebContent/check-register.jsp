@@ -30,8 +30,6 @@
 			boolean success = false;
 			String username = (String) request.getSession().getAttribute("username");
 			String password = (String) request.getSession().getAttribute("password");
-			out.println(username);
-			out.println(password);
 
 			Usuario user = new Usuario(username, password);
 			
@@ -43,10 +41,7 @@
 								credit.equals("yes"), category);
 				success = user.registra_transacao(des);
 			}
-			
-			out.println(year);
-			out.println(month);
-			out.println(day);
+
 			if (success) {
 	%>
 			<jsp:include page="register-success.jsp"/>
