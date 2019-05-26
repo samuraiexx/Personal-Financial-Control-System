@@ -25,8 +25,8 @@
 		Despesa<input type="radio" name="transaction" value="out" required>
 
 		<h5>Se foi uma Despesa: Foi pago com cartão de crédito?</h5>
-		Sim<input type="radio" name="credit" value="yes" required>
-		Não<input type="radio" name="credit" value="no" required>
+		Sim<input type="radio" name="credit" value="yes">
+		Não<input type="radio" name="credit" value="no">
 		<br/>
 
 		<input type="submit" value="Submit">
