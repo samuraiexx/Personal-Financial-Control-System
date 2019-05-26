@@ -32,5 +32,9 @@
 		<input type="submit" value="Submit">
 		<br/>
 	</form>
+	
+	<form method=post action="home.jsp">
+		<input type="submit" value="Voltar para menu principal"/>
+	</form>
 </body>
 </html>
