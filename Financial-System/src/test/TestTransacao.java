@@ -13,7 +13,6 @@ import fcs.Main;
 public class TestTransacao {
 
 	public static void main(String args[]) {
-		Main.main(args);
 		testReceita();
 		testDespesa();
 		testUsuario();
@@ -57,14 +56,24 @@ public class TestTransacao {
 	private static void testUsuario() {
 		System.out.println("teste_usuario");
 		Usuario usr = new Usuario("pepega", "pepegapwd");
+		Main main = new Main();
+		main.Connect();
+		boolean login = main.login("pepega", "pepegapwd");
+		assert login == true;
 		
 		long now = System.currentTimeMillis();
-		usr.registra_transacao(new Despesa(5, new Date(now), true, "Lentilha"));
+		Date date = new Date(1990,10,3);
+		usr.registra_transacao(new Despesa(5, date, true, "Lentilha"));
 		usr.registra_transacao(new Receita(8, new Date(now)));
 
 		System.out.println("listar_transacoes");
 		usr.listar_transacoes();
 
-		System.out.println("Balanco mensal: " + usr.gerar_balanco_mensal());
+		System.out.println("Balanco mensal: ");
+		for (Transacao t : usr.gerar_balanco_mensal(9,1990)) {
+			System.out.println(t.toString());
+		}
+
 	}
+	
 }
