@@ -77,11 +77,12 @@ public class Usuario {
 		}
 	}
 	
-	public void listar_transacoes() {
+	public List<Transacao> listar_transacoes() {
 		load_transacoes();
 		for (Transacao t : transacoes) {
 			System.out.println(t.toString());
 		}
+		return transacoes;
 	}
 	public List<Transacao> gerar_balanco_mensal(int mes, int ano) {
 		load_transacoes();
